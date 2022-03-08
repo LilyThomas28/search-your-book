@@ -10,7 +10,10 @@ const resolvers = {
         user: async (parent, { username }) => {
             return User.findOne({ username });
         },
-
+        books: async (parent, { username }) => {
+            const params = username ? { username } : {};
+            return Book.find(params).sort({ createAt: -1 });
+          },
     },
     Mutation: {
         addUser: async (parent, { username, email, password }) => {
