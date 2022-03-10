@@ -22,9 +22,6 @@ const typeDefs = gql`
         token: ID!
         user: User
     }
-    type Query {
-        me(userId: ID): User
-    }
     type Mutation {
         login(email: String!, password: String!): Auth
         removeBook(bookId: String!): User
